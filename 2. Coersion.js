@@ -57,33 +57,66 @@
 
 
 
+// // (b) ToString()
 
-// (b) ToString() (Pending)
+// // It is abstract operation that convert values to string.
+// // this is work differently depending on the value type
+// // This is internal : we dont call ToString() directly, but the engine uses it when it needs a string.
+// // Here's how ToString() behaves for different types:
 
 
+// console.log(String(undefined)); // "undefined"
+// console.log(String(null)); // "null"
+// console.log(String(true)); // "true"
+// console.log(String(123)); // "123"
+// console.log(String(10n)); // "10"
+
+// // Symbol trows error
+// // console.log(String(Symbol("x"))); // TypeError
+
+// // Objects
+
+// console.log(String([1, 2, 3])); // "1,2,3"
+// console.log(String({})); // [object Object] 
+
+// // (c) ToNumber()
+// // It is abstract operation that convert values into numeric value.
+// // It is not a function you call directly, but JS uses it internally whenever type conversion to number is needed.
+
+// // if value is string 
+// console.log(Number("")) // 0
+// console.log(Number("0")) // 0
+// console.log(Number("-0")) // -0
+// console.log(Number("009")) // 9
+// console.log(Number("3.14159")) // 3.14159
+// console.log(Number("0.")) // 0
+// console.log(Number(".0")) // 0
+// console.log(Number(".")) // NaN
 
 
-// (c) ToNumber (Pending)
+// console.log(Number(false)) // 0
+// console.log(Number(true)) // 1
+// console.log(Number(null)) // 0
+// console.log(Number(undefined)) // NaN
 
-// (d) ToBoolean (Pending)
+// // in case of objects (First JS converted to Primitive (via ToPrimitive with hint "number"), then toNumber applied)
 
-/////////////////////////////////////////////////////////////////////////////
+// console.log(Number([""])) // 0
+// console.log(Number(["0"])) // 0
+// console.log(Number(["-0"])) // -0
+// console.log(Number([null])) // 0
+// console.log(Number([undefined])) // 0
+// console.log(Number([1,2,3])) // NaN
+// console.log(Number([[[[]]]])) // 0
 
-// 2. Cases of Coersion (Pending)
+// console.log(Number({})) // NaN
+// console.log(Number({valueOf(){ return 3;}})) // 3
 
-/////////////////////////////////////////////////////////////////////////////
+// (d) ToBoolean()
+// It is abstract operation that convert values to boolean.
 
-// 3. Boxing (Pending)
-
-/////////////////////////////////////////////////////////////////////////////
-
-// 4. Corner Cases of Coersion (Pending)
-
-/////////////////////////////////////////////////////////////////////////////
-
-// 5. Truthy and Falsy Value
-
-// Falsy Value
+// Truthy and Falsy Value
+// Falsy Value = false values
 
 // the following 8 values are considered falsy (they become `false`  when converted to boolean) :
 
@@ -153,7 +186,7 @@ if(NaN) {
   console.log("Falsy"); // runs
 }
 
-// Truthy Value
+// Truthy Value = true values
 
 // Everything else (not in the falsy list) is truthy value.
 
@@ -180,3 +213,16 @@ if ([]) {
 if ({}) {
   console.log("This is truthy"); // runs
 } 
+
+/////////////////////////////////////////////////////////////////////////////
+
+// 2. Cases of Coersion
+
+/////////////////////////////////////////////////////////////////////////////
+
+// 3. Boxing (Pending)
+
+/////////////////////////////////////////////////////////////////////////////
+
+// 4. Corner Cases of Coersion (Pending)
+
