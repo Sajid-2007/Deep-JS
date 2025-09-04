@@ -49,3 +49,56 @@
 
 // > Coercive equality (==) = compares values after coercion.
 // > Strict equality (===) = compares values without coercion (checks type + value).
+
+
+
+// 3. Double Eqaual Walkthrough
+
+// var w1c = 42;
+// var w2c = [42];
+
+// console.log(w1c == w2c) 
+
+
+//   // 4.  Double equals corner cases
+
+// var w1s = [];
+// var w2s = [];
+
+// console.log(w1s == !w2s);
+
+// // 5. Corner Cases of Boolean. 
+
+// var ws = [];
+
+// if(ws){
+//     console.log(true)
+// }else{
+//     console.log(false)
+// }
+
+// if(ws == true){
+//     console.log(true)
+// }else{
+//     console.log(false)
+// }
+
+// if(ws == false){
+//     console.log(true)
+// }else{
+//     console.log(false)
+// }
+
+
+// 6. Corner Cases Summary 
+
+// Avoid :
+// 1. == with 0 or "" (or even " ")
+// 2. == with non.primitives 
+// 3. == true or == false : allow ToBoolean or use ===
+
+
+
+// 7. The cases for preferring Double Equals
+
+// Summary : making types known and obvious leads to better code. if types are known, == is best. Otherwise, fall back to ===
