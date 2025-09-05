@@ -42,35 +42,104 @@
 // outer();
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// 2. Compilation & Scope
+// // 2. Compilation & Scope
 
-var teacher = "Kyle";
+// var teacher = "Kyle";
 
-function otherClass(){
-  var teacher = "Suzy";
-  console.log("Welcome!"); // Welcome!
-  console.log(teacher); // Suzy
-}
+// function otherClass(){
+//   var teacher = "Suzy";
+//   console.log("Welcome!"); // Welcome!
+//   console.log(teacher); // Suzy
+// }
 
-function ask(){
-  var question = "Why?";
-  console.log(question); // Why?
-}
+// function ask(){
+//   var question = "Why?";
+//   console.log(question); // Why?
+// }
 
-otherClass(); // Welcome!
-ask(); // Why?
-
-
-// Each function makes its own local scope.
-
-// - Global : `teacher = “Kyle”`
-// - `otherclass()` create a new `teacher = “Suzy”` that hide the global one inside the function.
-// - `ask()` has its own `question` only visible inside it.
-
-// Variable are only usable inside the scope where they’re declared.
+// otherClass(); // Welcome!
+// ask(); // Why?
 
 
+// // Each function makes its own local scope.
 
-// 3. 
+// // - Global : `teacher = “Kyle”`
+// // - `otherclass()` create a new `teacher = “Suzy”` that hide the global one inside the function.
+// // - `ask()` has its own `question` only visible inside it.
+
+// // Variable are only usable inside the scope where they’re declared.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 3. Dynamic global variables
+
+// // non-strict mode
+
+// // var teacher = "Kyle";
+
+// // function otherClass(){
+// //   teacher = "Suzy";
+// //   topic = "React";
+// //   console.log("Welcome!")
+// //   console.log("fn " + topic);
+// // }
+
+// // otherClass();
+
+// // console.log(teacher);
+// // console.log(topic);
+
+
+// // strict mode
+
+// "use strict";
+
+// var teacher = "Kyle";
+
+// function otherClass(){
+//   teacher = "Suzy";
+//   topic = "React";
+//   console.log("Welcome!")
+//   console.log("fn " + topic);
+// }
+
+// otherClass();
+
+// console.log(teacher);
+// console.log(topic);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// // 4. Nested Scope
+
+// // nested scope = "scope inside another scope"
+
+// // In JavaScript , every function/block makes its own scope, and inner scopes can see outer variables but outer don't see inner.
+
+// let teacher = "Kyle";
+
+// function outer(){
+//   let topic = "JS";
+
+//   function inner(){
+//     let forCheckingError = "InnerVar"; 
+//     console.log(teacher);
+//     console.log(topic);
+//   }
+
+//   inner();
+
+//   console.log(forCheckingError); // ReferenceError: forCheckingError is not defined
+// }
+
+// outer();
+
+// // outer() is nested in the global scope.
+// // inner() is nested inside outer();
+// // inner() can use both topic and teacher variables (outer scopes), but outer() can't use inner function variables. (inner scopes)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 5. Undefind vs undeclared
