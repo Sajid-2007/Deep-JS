@@ -142,4 +142,47 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// 5. Undefind vs undeclared
+// // 5. Undefind vs undeclared
+ 
+// //  undefined - A variable exists but has no value assigned yet.
+
+// let a; // this is declared but not assigned value.
+
+// console.log(a); // undefined because a has no value.
+
+
+// // undeclared 
+
+// // A variable was never declared in this scope. Accesing it throws a RefrenceError
+
+// console.log(b); // RefrenceError : b is not defined.
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// 6. Lexical Scope Elevator
+
+// Lexical scope like an elevator in a building :
+//  - When you write the code, JavaScript fixes which "floor" (outer scopes) each function can see.
+//  - At runtime, if a variable isn't found on the current floor, the "elevator" goes up floor by floor (outer Scopes) until it finds that variable.
+//  - It never goes down into inner floors, because those were created after.
+
+let ground = "G";
+
+function firstFloor(){
+    let one = "1";
+
+    function secondFloor(){
+        let two = "2";
+        console.log(two);    // "2" (current floor)
+        console.log(one);    // "1" (1st floor up)
+        console.log(ground); // "G" (ground floor)
+    }
+
+    secondFloor();
+}
+
+firstFloor();
+
+// A function always remembers the scope where it was defined, no matter where you call it.
+
