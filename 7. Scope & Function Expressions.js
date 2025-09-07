@@ -23,3 +23,7 @@ console.log(anotherTeacher); //  RefrenceError : anotherTeacher is not defind.
 // Why RefrenceError -
     //     RefrenceError because there's no variable named "anotherTeacher" in global scope
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 2. Naming Function Expressions
+
