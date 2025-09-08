@@ -27,3 +27,20 @@ console.log(anotherTeacher); //  RefrenceError : anotherTeacher is not defind.
 
 // 2. Naming Function Expressions
 
+// Named Function Expression : Benefits
+
+// - Reliable function self-reference ( recursion, etc). -
+
+// When you give the function a name inside the expression, that name is always available inside its own body.
+
+// - More debuggable stack traces -
+
+// DevTools and console errors show the function name in stack traces.
+
+// Easier to see which function failed instead of just “anonymous”.
+
+// - More self-documenting code
+
+// A clear name directly describes what the function is supposed to do, even befroe reading the body.
+
+// Improves readability and maintenance.
