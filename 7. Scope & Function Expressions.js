@@ -44,3 +44,6 @@ console.log(anotherTeacher); //  RefrenceError : anotherTeacher is not defind.
 // A clear name directly describes what the function is supposed to do, even befroe reading the body.
 
 // Improves readability and maintenance.
+
+
+// 3. Arrow Function
