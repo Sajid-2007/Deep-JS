@@ -1,27 +1,27 @@
-// 1. Function Expressions
+// // 1. Function Expressions
 
-function teacher(){
-    console.log("Teacher Fn")
-};
+// function teacher(){
+//     console.log("Teacher Fn")
+// };
 
-var myTeacher = function anotherTeacher() {  // this is function expression
-    console.log(anotherTeacher);
-};
+// var myTeacher = function anotherTeacher() {  // this is function expression
+//     console.log(anotherTeacher);
+// };
 
-console.log(teacher); // returns teacher function
-console.log(myTeacher); // returns anotherTeacher function
-console.log(anotherTeacher); //  RefrenceError : anotherTeacher is not defind.
+// console.log(teacher); // returns teacher function
+// console.log(myTeacher); // returns anotherTeacher function
+// console.log(anotherTeacher); //  RefrenceError : anotherTeacher is not defind.
 
 
-// explanation :
+// // explanation :
 
-// Scope Difference -
-    // teacher - declared globally.
-    // myTeacher - variable holding the function. 
-    // anotherTeacher - visible only inside that function body. 
+// // Scope Difference -
+//     // teacher - declared globally.
+//     // myTeacher - variable holding the function. 
+//     // anotherTeacher - visible only inside that function body. 
 
-// Why RefrenceError -
-    //     RefrenceError because there's no variable named "anotherTeacher" in global scope
+// // Why RefrenceError -
+//     //     RefrenceError because there's no variable named "anotherTeacher" in global scope
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -47,3 +47,23 @@ console.log(anotherTeacher); //  RefrenceError : anotherTeacher is not defind.
 
 
 // 3. Arrow Function
+
+// Name Function Expression vs Anonymous Arrow Function.
+
+// Named Function Expression
+const greet = function sayHello(name){
+    console.log("Hello " + name);
+};
+
+// - Has its own name (`sayHello`) — Useful for recursion & debugging.
+// - Create its own `this`.
+// - Longer Syntax.
+
+//Anonymous Arrow Function
+const greet1 = (name) => {
+    console.log("Hello " + name);
+};
+
+// - It has no name — this is shorter, good for inline callbacks.
+// - Does not create its own `this` (it uses lexical `this`).
+// - Cannot be used easily for recursion.
