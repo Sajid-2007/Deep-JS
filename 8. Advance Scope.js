@@ -32,12 +32,5 @@ function otherClass(){
 }
 
 otherClass(); // If JS Support dynamic scope then will be "Suzy Why?"
-// Actual Output is "Kyle Why?" because JS Lexical Scopr 
-
-
-
-
-
-
-
-
+// Actual Output is "Kyle Why?" because 
+// JS Lexical Scope.
