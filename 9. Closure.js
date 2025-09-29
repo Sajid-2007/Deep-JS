@@ -12,7 +12,3 @@ function ask(question){
 }
 
 ask("What is closure?");
-
-
-
-
